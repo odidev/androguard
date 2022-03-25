@@ -2,7 +2,7 @@ language: python
 dist: xenial
 arch:
   - amd64
-  - ppc64le
+  - arm64
 # Download jadx decompiler
 before_script:
   - wget https://github.com/skylot/jadx/releases/download/v1.2.0/jadx-1.2.0.zip -O /tmp/jadx-1.2.0.zip
@@ -20,6 +20,7 @@ python:
 #  - "3.8-dev"  # Disabled due to LXML compile error on 3.8
 # command to install dependencies
 install:
+  - uname -m
   - "pip install .[tests,docs,magic]"
 # command to run tests
 script:
